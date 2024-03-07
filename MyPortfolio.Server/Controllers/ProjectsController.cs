@@ -8,7 +8,7 @@ using System.Diagnostics;
 namespace MyPortfolio.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ProjectsController : ControllerBase
     {
         private readonly ILogger<ProjectsController> _logger;
@@ -20,12 +20,22 @@ namespace MyPortfolio.Server.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
-        [HttpGet(Name = "GetProjects")]
-        public IEnumerable<Project> GetProjects()
+        [HttpGet]
+        public IEnumerable<Project> Index()
         {
             List<Project> projects = _unitOfWork.Project.GetAll().ToList();
             return projects.ToArray();
         }
+
+        [HttpGet("{id}")]
+        public Project Details(int id)
+        {
+            return _unitOfWork.Project.GetById(id);
+        }
+
+        // index - main
+        // details - show
+        // upsert - create or edit
+        // destroy - delete resource
     }
 }

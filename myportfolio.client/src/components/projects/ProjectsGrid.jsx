@@ -24,7 +24,7 @@ function ProjectsGrid() {
     return contents;
 
     async function populateProjectsData() {
-        const response = await fetch("projects");
+        const response = await fetch("api/projects");
         const projects = await response.json();
         setProjects(projects);
     }

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyPortfolio.Server.Utility;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyPortfolio.Server.Data.Models
 {
@@ -9,5 +11,8 @@ namespace MyPortfolio.Server.Data.Models
 
         [Required]
         public string? Description { get; set; }
+
+        // single category
+        // multiple tags
     }
 }

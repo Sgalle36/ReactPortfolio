@@ -12,5 +12,10 @@
         {
             return str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        public static string SnakeCase(string str)
+        {
+            return str.ToLower().Replace(" ", "_");
+        }
     }
 }
